@@ -50,3 +50,15 @@ export async function getProject(req, res) {
         data: project
     })
 }
+export async function deleteProject(req, res) {
+    const { id } = req.params;
+    const deleteRowCount = await Project.destroy({
+        where: {
+            id
+        }
+    });
+    res.json({
+        message: 'Project deleted succesfully',
+        count: deleteProject
+    })
+}
