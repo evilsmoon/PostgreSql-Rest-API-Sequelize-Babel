@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import { sequelize } from '../database';
-
+import Tasks from "./Tasks.model";
 const Project = sequelize.define('projects', {
     id: {
         type: Sequelize.INTEGER,
@@ -21,5 +21,6 @@ const Project = sequelize.define('projects', {
 }, {
     timestamps: false
 });
-
+Project.hasMany(Tasks, { foreingkey: "projectId", sourceKey: 'id' });
+Tasks.belongsTo(Project, { foreingkey: "projectId", sourceKey: 'id' });
 export default Project;
