@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS tasks(
     name text Not Null Check (name <> ''),
     done Boolean,
     projectId integer references projects(id)
-);
+);require
 
 insert into projects (name,priority,description,deliverydate) 
 values ('make a web app',1,'using Javascript','2019-05-12');
